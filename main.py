@@ -1,4 +1,4 @@
-"""Sistema académico Software FJ. Python 3.10+, sin dependencias externas."""
+"""Sistema académico Software FJ"""
 from abc import ABC, abstractmethod
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
