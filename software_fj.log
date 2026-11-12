@@ -1,0 +1,192 @@
+2026-11-11 22:14:52,430 | INFO | Inicio de Software FJ: 2026-11-11T22:14:52.430469
+2026-11-11 22:14:52,430 | INFO | OK: 01. Registrar cliente válido
+2026-11-11 22:14:52,430 | INFO | Fin de operación: 01. Registrar cliente válido
+2026-11-11 22:14:52,430 | ERROR | ERROR: 02. Rechazar correo inválido
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 332, in <lambda>
+    ('Rechazar correo inválido', lambda: sistema.registrar_cliente('C2', 'Luis', 'incorrecto', '3001234567')),
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 278, in registrar_cliente
+    cliente = Cliente(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 67, in __init__
+    raise DatosInvalidos('Correo electrónico inválido.')
+DatosInvalidos: Correo electrónico inválido.
+2026-11-11 22:14:52,445 | INFO | Fin de operación: 02. Rechazar correo inválido
+2026-11-11 22:14:52,445 | ERROR | ERROR: 03. Rechazar parámetro faltante
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 333, in <lambda>
+    ('Rechazar parámetro faltante', lambda: sistema.registrar_cliente('C3', 'Pedro')),
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 278, in registrar_cliente
+    cliente = Cliente(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Cliente.__init__() missing 2 required positional arguments: 'correo' and 'telefono'
+2026-11-11 22:14:52,446 | INFO | Fin de operación: 03. Rechazar parámetro faltante
+2026-11-11 22:14:52,446 | ERROR | ERROR: 04. Rechazar cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 334, in <lambda>
+    ('Rechazar cliente duplicado', lambda: sistema.registrar_cliente('C1', 'Ana', 'ana@correo.com', '3001234567')),
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 279, in registrar_cliente
+    self.__agregar(self.__clientes, cliente)
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 293, in __agregar
+    raise DatosInvalidos(f'Identificador duplicado: {entidad.identificador}.')
+DatosInvalidos: Identificador duplicado: C1.
+2026-11-11 22:14:52,446 | INFO | Fin de operación: 04. Rechazar cliente duplicado
+2026-11-11 22:14:52,446 | INFO | OK: 05. Crear sala
+2026-11-11 22:14:52,446 | INFO | Fin de operación: 05. Crear sala
+2026-11-11 22:14:52,446 | INFO | OK: 06. Crear equipo
+2026-11-11 22:14:52,446 | INFO | Fin de operación: 06. Crear equipo
+2026-11-11 22:14:52,446 | INFO | OK: 07. Crear asesoría
+2026-11-11 22:14:52,446 | INFO | Fin de operación: 07. Crear asesoría
+2026-11-11 22:14:52,446 | ERROR | ERROR: 08. Rechazar tarifa negativa
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 338, in <lambda>
+    ('Rechazar tarifa negativa', lambda: sistema.registrar_servicio('sala', 'S4', 'Sala B', -1, 5)),
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 286, in registrar_servicio
+    servicio = tipos[tipo](*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 140, in __init__
+    super().__init__(identificador, nombre, tarifa)
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 94, in __init__
+    self.__tarifa = numero(tarifa, 'Tarifa por hora', Decimal('0.01'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 42, in numero
+    raise DatosInvalidos(f"{campo}: debe ser finito y mayor o igual a {minimo}.")
+DatosInvalidos: Tarifa por hora: debe ser finito y mayor o igual a 0.01.
+2026-11-11 22:14:52,449 | INFO | Fin de operación: 08. Rechazar tarifa negativa
+2026-11-11 22:14:52,449 | ERROR | ERROR: 09. Rechazar capacidad fraccionaria
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 339, in <lambda>
+    ('Rechazar capacidad fraccionaria', lambda: sistema.registrar_servicio('sala', 'S5', 'Sala C', 100, 2.5)),
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 286, in registrar_servicio
+    servicio = tipos[tipo](*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 143, in __init__
+    raise DatosInvalidos('La capacidad debe ser un entero.')
+DatosInvalidos: La capacidad debe ser un entero.
+2026-11-11 22:14:52,449 | INFO | Fin de operación: 09. Rechazar capacidad fraccionaria
+2026-11-11 22:14:52,449 | ERROR | ERROR: 10. Rechazar cliente inexistente
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 340, in <lambda>
+    ('Rechazar cliente inexistente', lambda: sistema.crear_reserva('R0', 'C9', 'S1', 2)),
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 297, in crear_reserva
+    reserva = Reserva(identificador, self.buscar(self.__clientes, cliente_id),
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 275, in buscar
+    raise NoEncontrado(f'No existe el identificador {identificador}.')
+NoEncontrado: No existe el identificador C9.
+2026-11-11 22:14:52,451 | INFO | Fin de operación: 10. Rechazar cliente inexistente
+2026-11-11 22:14:52,451 | ERROR | ERROR: 11. Rechazar duración inválida
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 341, in <lambda>
+    ('Rechazar duración inválida', lambda: sistema.crear_reserva('R0', 'C1', 'S1', -2)),
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 297, in crear_reserva
+    reserva = Reserva(identificador, self.buscar(self.__clientes, cliente_id),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 202, in __init__
+    servicio.validar_parametros(duracion)
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 147, in validar_parametros
+    numero(duracion, 'Horas de sala', Decimal('1'), Decimal('12'))
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 42, in numero
+    raise DatosInvalidos(f"{campo}: debe ser finito y mayor o igual a {minimo}.")
+DatosInvalidos: Horas de sala: debe ser finito y mayor o igual a 1.
+2026-11-11 22:14:52,451 | INFO | Fin de operación: 11. Rechazar duración inválida
+2026-11-11 22:14:52,451 | INFO | OK: 12. Crear reserva
+2026-11-11 22:14:52,452 | INFO | Fin de operación: 12. Crear reserva
+2026-11-11 22:14:52,452 | INFO | OK: 13. Confirmar reserva
+2026-11-11 22:14:52,452 | INFO | Fin de operación: 13. Confirmar reserva
+2026-11-11 22:14:52,452 | ERROR | ERROR: 14. Rechazar servicio ocupado
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 344, in <lambda>
+    ('Rechazar servicio ocupado', lambda: sistema.crear_reserva('R2', 'C1', 'S1', 1)),
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 297, in crear_reserva
+    reserva = Reserva(identificador, self.buscar(self.__clientes, cliente_id),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 204, in __init__
+    raise OperacionNoPermitida('Servicio no disponible.')
+OperacionNoPermitida: Servicio no disponible.
+2026-11-11 22:14:52,452 | INFO | Fin de operación: 14. Rechazar servicio ocupado
+2026-11-11 22:14:52,452 | ERROR | ERROR: 15. Rechazar descuento inválido
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 238, in procesar
+    total = self.__servicio.calcular_costo(self.__duracion, impuesto, descuento)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 130, in calcular_costo
+    descuento = numero(descuento, 'Descuento', maximo=Decimal('1'))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 44, in numero
+    raise DatosInvalidos(f"{campo}: no puede superar {maximo}.")
+DatosInvalidos: Descuento: no puede superar 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 345, in <lambda>
+    ('Rechazar descuento inválido', lambda: sistema.buscar(sistema.reservas, 'R1').procesar(descuento=2)),
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 240, in procesar
+    raise OperacionNoPermitida('No se pudo procesar el costo de la reserva.') from causa
+OperacionNoPermitida: No se pudo procesar el costo de la reserva.
+2026-11-11 22:14:52,452 | INFO | Fin de operación: 15. Rechazar descuento inválido
+2026-11-11 22:14:52,452 | INFO | OK: 16. Procesar con impuesto y descuento
+2026-11-11 22:14:52,452 | INFO | Fin de operación: 16. Procesar con impuesto y descuento
+2026-11-11 22:14:52,452 | ERROR | ERROR: 17. Rechazar cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 313, in ejecutar
+    resultado = accion()
+                ^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 347, in <lambda>
+    ('Rechazar cancelar reserva procesada', lambda: sistema.buscar(sistema.reservas, 'R1').cancelar()),
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dcruz\OneDrive - IA4 SAS\Documentos\ChatGPT\Alejo\software_fj\main.py", line 229, in cancelar
+    raise OperacionNoPermitida('La reserva ya fue cancelada o procesada.')
+OperacionNoPermitida: La reserva ya fue cancelada o procesada.
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 17. Rechazar cancelar reserva procesada
+2026-11-11 22:14:52,454 | INFO | OK: 18. Crear reserva de equipo
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 18. Crear reserva de equipo
+2026-11-11 22:14:52,454 | INFO | OK: 19. Confirmar equipo
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 19. Confirmar equipo
+2026-11-11 22:14:52,454 | INFO | OK: 20. Cancelar equipo
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 20. Cancelar equipo
+2026-11-11 22:14:52,454 | INFO | OK: 21. Crear reserva de asesoría
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 21. Crear reserva de asesoría
+2026-11-11 22:14:52,454 | INFO | OK: 22. Confirmar asesoría
+2026-11-11 22:14:52,454 | INFO | Fin de operación: 22. Confirmar asesoría
+2026-11-11 22:14:52,455 | INFO | OK: 23. Procesar asesoría
+2026-11-11 22:14:52,455 | INFO | Fin de operación: 23. Procesar asesoría
+2026-11-11 22:14:52,455 | INFO | Cierre de Software FJ
+2026-11-11 22:24:20,344 | INFO | Inicio de Software FJ: 2026-11-11T22:24:20.344657
